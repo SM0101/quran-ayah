@@ -120,3 +120,27 @@ h2 {
     background-color: #00caee;
   }
 
+  /* Mobile (Small Screens) */
+@media (max-width: 767px) {
+    .search-container {
+      padding: 10px;
+    }
+  
+    .search-container .col-6 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .search-container label,
+    .search-container input,
+    .search-button {
+      width: 90%;
+      max-width: 300px;
+    }
+  
+    .search-container input {
+      margin-bottom: 10px;
+    }
+  }
