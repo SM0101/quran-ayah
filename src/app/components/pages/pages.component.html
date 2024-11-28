@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row wrapper">
+    <div class="row wrapper"(swipeleft)="onSwipeLeft()" (swiperight)="onSwipeRight()">
         <div class="col-1 swiper-button-prev" aria-label="Previous Slide" (click)="searchPrev()"></div>
 
         <div class="col-10 ayah-content" *ngFor="let ayah of ayahs">

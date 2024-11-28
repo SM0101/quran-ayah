@@ -45,6 +45,7 @@ body {
 
 .swiper-button-next:hover, .swiper-button-prev:hover {
     background-color: #10d10a;
+    transition: background-color 0.1s ease;
 }
 
 

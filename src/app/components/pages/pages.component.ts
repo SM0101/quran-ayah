@@ -3,12 +3,13 @@ import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { QuranApiServiceService } from '../../services/quran-api-service.service';
 import { forkJoin } from 'rxjs';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 //import { ApiResponse } from '../../models/interfaces/ayah';
 
 @Component({
   selector: 'app-pages',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,BrowserModule,HammerModule],
   templateUrl: './pages.component.html',
   styleUrl: './pages.component.css'
 })
@@ -111,7 +112,7 @@ loadPrevAyah() {
   }
 }
 
-
+//For PC 
 @HostListener('window:keydown', ['$event'])
 handleKeyboardEvent(event: KeyboardEvent) {
   if (event.key === 'ArrowRight') {
@@ -133,5 +134,13 @@ handleScrollEvent(event: WheelEvent) {
   }
 }
 
+//For Mobile Devices
+onSwipeLeft() {
+  this.searchNext(); // Load the next Ayah
+}
+
+onSwipeRight() {
+  this.searchPrev(); // Load the previous Ayah
+}
 
 }
