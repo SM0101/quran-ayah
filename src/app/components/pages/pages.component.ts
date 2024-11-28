@@ -3,13 +3,13 @@ import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { QuranApiServiceService } from '../../services/quran-api-service.service';
 import { forkJoin } from 'rxjs';
-import { BrowserModule, HammerModule } from '@angular/platform-browser';
+import { HammerModule } from '@angular/platform-browser';
 //import { ApiResponse } from '../../models/interfaces/ayah';
 
 @Component({
   selector: 'app-pages',
   standalone: true,
-  imports: [CommonModule, FormsModule,BrowserModule,HammerModule],
+  imports: [CommonModule, FormsModule,HammerModule],
   templateUrl: './pages.component.html',
   styleUrl: './pages.component.css'
 })
@@ -96,8 +96,6 @@ loadNextAyah() {
   if (this.ayahNumber < this.totalAyahs) {
     this.ayahNumber++; // Increment to load the next Ayah
     this.loadAyahs(); // Fetch and load the next Ayah
-    console.log(`loadnext ayah${this.ayahNumber}`);
-    console.log(`loadnext surah${this.surahNumbers}`);
   } else {
     console.log('No more Ayahs to load.');
   }
