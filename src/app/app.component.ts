@@ -5,7 +5,7 @@ import { PagesComponent } from "./components/pages/pages.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, PagesComponent],
+  imports: [ PagesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

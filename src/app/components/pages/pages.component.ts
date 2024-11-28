@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { QuranApiServiceService } from '../../services/quran-api-service.service';
 import { forkJoin } from 'rxjs';
 import { HammerModule } from '@angular/platform-browser';
+import 'hammerjs';
 //import { ApiResponse } from '../../models/interfaces/ayah';
 
 @Component({
@@ -135,10 +136,12 @@ handleScrollEvent(event: WheelEvent) {
 //For Mobile Devices
 onSwipeLeft() {
   this.searchNext(); // Load the next Ayah
+  console.log('swipe left')
 }
 
 onSwipeRight() {
   this.searchPrev(); // Load the previous Ayah
+  console.log('swipe right')
 }
 
 }
