@@ -42,6 +42,9 @@ export class PagesComponent implements OnInit {
           surahName: response.arabic.data.surah.englishName,
           surahNameArabic: response.arabic.data.surah.name,
           arabic2: response.arabic.data.text,
+          sajda: response.arabic.data.sajda,
+          revelationType: response.arabic.data.surah.revelationType,
+          englishNameTranslation: response.arabic.data.surah.englishNameTranslation,
           english: response.english.english
         }];
         this.totalAyahs = response.arabic.data.surah.numberOfAyahs;
@@ -114,6 +117,18 @@ handleKeyboardEvent(event: KeyboardEvent) {
   if (event.key === 'ArrowRight') {
     this.searchNext();
   } else if (event.key === 'ArrowLeft') {
+    this.searchPrev();
+  }
+}
+
+@HostListener('window:wheel', ['$event'])
+handleScrollEvent(event: WheelEvent) {
+  // Check the scroll direction
+  if (event.deltaY > 0) {
+    // Scrolled down
+    this.searchNext();
+  } else if (event.deltaY < 0) {
+    // Scrolled up
     this.searchPrev();
   }
 }
