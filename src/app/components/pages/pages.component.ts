@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, NgZone, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { QuranApiServiceService } from '../../services/quran-api-service.service';
 import { forkJoin } from 'rxjs';
@@ -17,6 +17,7 @@ import { MyHammerConfig } from '../../services/gesture-config';
   styleUrl: './pages.component.css'
 })
 export class PagesComponent implements OnInit {
+  constructor(private ngZone: NgZone) {}
   //ayahs: ApiResponse[] =[];
   ayahs: any[] = [];
   arabic: any[] = [];
@@ -137,13 +138,13 @@ handleScrollEvent(event: WheelEvent) {
 
 //For Mobile Devices
 onSwipeLeft() {
-  this.searchNext(); // Load the next Ayah
-  console.log('swipe left')
+  this.ngZone.run(()=>{ this.searchNext(); // Load the next Ayah
+    console.log('swipe left')});
 }
 
 onSwipeRight() {
-  this.searchPrev(); // Load the previous Ayah
-  console.log('swipe right')
+  this.ngZone.run(()=>{ this.searchPrev(); // Load the next Ayah
+    console.log('swipe right')});
 }
 
 }
