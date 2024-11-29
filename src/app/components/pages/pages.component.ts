@@ -3,14 +3,16 @@ import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { QuranApiServiceService } from '../../services/quran-api-service.service';
 import { forkJoin } from 'rxjs';
-import { HammerModule } from '@angular/platform-browser';
+import { HAMMER_GESTURE_CONFIG, HammerModule } from '@angular/platform-browser';
 import 'hammerjs';
+import { MyHammerConfig } from '../../services/gesture-config';
 //import { ApiResponse } from '../../models/interfaces/ayah';
 
 @Component({
   selector: 'app-pages',
   standalone: true,
   imports: [CommonModule, FormsModule,HammerModule],
+  providers:[ { provide: HAMMER_GESTURE_CONFIG, useClass: MyHammerConfig } ],
   templateUrl: './pages.component.html',
   styleUrl: './pages.component.css'
 })
