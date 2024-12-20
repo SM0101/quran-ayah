@@ -1,10 +1,23 @@
-<div class="full" (swipeleft)="onSwipeLeft()" (swiperight)="onSwipeRight()">
+<div class="full" (swipeleft)="onSwipeLeft()" (swiperight)="onSwipeRight()" (swipeup)="onSwipeUp()">
+    <div class="row search-container">
+        <div class="col-3"></div>
+        <div class="col-6"> <label for="surahInput">Surah:</label>
+            <input type="number" id="surahInput" #surahNumberInput [(ngModel)]="surahNumbers" min="1" max="114" placeholder="Surah"
+                aria-label="Surah Number" />
+
+            <label for="ayahInput">Ayah:</label>
+            <input type="number" id="ayahInput" [(ngModel)]="ayahNumber" min="1" placeholder="Ayah"
+                aria-label="Ayah Number" />
+
+            <button class="search-button" (click)="search()">Search</button>
+        </div>
+        <div class="col-3"></div>
+    </div>
     <div class="container">
         <div class="row wrapper">
             <div class="col-1 swiper-button-prev" aria-label="Previous Slide" (click)="searchPrev()"></div>
 
             <div class="col-10 ayah-content" *ngFor="let ayah of ayahs">
-
                 <h2> {{ ayah.surahNameArabic }}</h2>
                 <h2>{{ ayah.surahName }} </h2>
                 <hr />
@@ -21,19 +34,7 @@
             <div class="col-1 swiper-button-next" aria-label="Next Slide" (click)="searchNext()"></div>
         </div>
     </div>
-    <div class="row search-container">
-        <div class="col-3"></div>
-        <div class="col-6"> <label for="surahInput">Surah:</label>
-            <input type="number" id="surahInput" [(ngModel)]="surahNumbers" min="1" max="114" placeholder="Surah"
-                aria-label="Surah Number" />
-
-            <label for="ayahInput">Ayah:</label>
-            <input type="number" id="ayahInput" [(ngModel)]="ayahNumber" min="1" placeholder="Ayah"
-                aria-label="Ayah Number" />
-
-            <button class="search-button" (click)="search()">Search</button>
-        </div>
-        <div class="col-3"></div>
+    <div class="help-message" *ngIf="showHelp">
+        Swipe Left and Right to navigate, Swipe up to Search by Surah
     </div>
-
 </div>

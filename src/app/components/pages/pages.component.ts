@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, inject, NgZone, OnInit } from '@angular/core';
+import { Component, HostListener, inject, NgZone, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { QuranApiServiceService } from '../../services/quran-api-service.service';
 import { forkJoin } from 'rxjs';
@@ -17,6 +17,9 @@ import { MyHammerConfig } from '../../services/gesture-config';
   styleUrl: './pages.component.css'
 })
 export class PagesComponent implements OnInit {
+  @ViewChild('surahNumberInput') surahNumberInput!: ElementRef;
+  showHelp: boolean = false;
+
   constructor(private ngZone: NgZone) {}
   //ayahs: ApiResponse[] =[];
   ayahs: any[] = [];
@@ -32,6 +35,12 @@ export class PagesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAyahs();
+    if (window.innerWidth <= 700) { // Check if the device is mobile
+      this.showHelp = true;
+      setTimeout(() => {
+        this.showHelp = false;
+      }, 3000); // Hide the message after 5 seconds
+    }
   }
 
   loadAyahs() {
@@ -126,27 +135,39 @@ handleKeyboardEvent(event: KeyboardEvent) {
   }
 }
 
-@HostListener('window:wheel', ['$event'])
-handleScrollEvent(event: WheelEvent) {
-  // Check the scroll direction
-  if (event.deltaY > 0) {
-    // Scrolled down
-    this.searchNext();
-  } else if (event.deltaY < 0) {
-    // Scrolled up
-    this.searchPrev();
-  }
-}
+// @HostListener('window:wheel', ['$event'])
+// handleScrollEvent(event: WheelEvent) {
+//   // Check the scroll direction
+//   if (event.deltaY > 0) {
+//     // Scrolled down
+//     this.searchNext();
+//   } else if (event.deltaY < 0) {
+//     // Scrolled up
+//     this.searchPrev();
+//   }
+// }
 
 //For Mobile Devices
 onSwipeLeft() {
   this.ngZone.run(()=>{ this.searchNext(); // Load the next Ayah
-    console.log('swipe left')});
+    });
+}
+
+onSwipeUp() {
+  this.ngZone.run(() => {
+    this.surahNumberInput.nativeElement.focus(); // Focus on the Surah number input
+    console.log('swipe up');
+  });
 }
 
 onSwipeRight() {
-  this.ngZone.run(()=>{ this.searchPrev(); // Load the next Ayah
-    console.log('swipe right')});
+  this.ngZone.run(() => {
+    this.searchPrev(); // Load the next Ayah
+  });
 }
+
+// toggleHelp() {
+//   this.showHelp = !this.showHelp;
+// }
 
 }

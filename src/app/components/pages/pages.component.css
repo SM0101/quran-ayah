@@ -17,7 +17,7 @@ body {
   flex-direction: column;
   justify-content: center;
   padding-bottom: 10px;
-  padding-top: 2%;
+  padding-top: 60px;
   z-index: 5;
 }
 
@@ -145,7 +145,7 @@ h3 {
   }
 
   .container {
-    padding-top: 10%;
+    padding-top: 80px;
   }
   .ayah-content {
     width: 95%;
@@ -203,7 +203,8 @@ h3 {
   /* Optional Visual Feedback */
   .search-container {
     transition: transform 0.3s ease-in-out;
-    margin-top: 10px;
+    /* margin-top: 30px; */
+    padding: 10px;
   }
 
   .search-container.swipe-left {
@@ -214,9 +215,17 @@ h3 {
     transform: translateX(10%);
   }
 
-  .arabic-text,
-  .translation-text {
-    max-height: 100vh; /* Limit the height to the viewport height */
-    overflow-y: auto; /* Enable vertical scrolling */
+  .wrapper {
+    height: fit-content;
   }
+
+  .help-message{
+    font-size: 1.2rem;
+    font-weight: bolder;
+  }
+  /*.arabic-text,
+  .translation-text {
+    max-height: 100vh;
+    overflow-y: auto; 
+    } */
 }
