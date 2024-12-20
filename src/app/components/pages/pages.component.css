@@ -147,6 +147,7 @@ h3 {
   .container {
     padding-top: 80px;
     overflow-y: auto;
+    touch-action: pan-x pan-y;
   }
   .ayah-content {
     width: 95%;
