@@ -217,6 +217,7 @@ h3 {
 
   .wrapper {
     height: fit-content;
+    overflow-y: auto;
   }
 
   .help-message{
