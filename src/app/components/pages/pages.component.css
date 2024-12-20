@@ -146,6 +146,7 @@ h3 {
 
   .container {
     padding-top: 80px;
+    overflow-y: auto;
   }
   .ayah-content {
     width: 95%;
