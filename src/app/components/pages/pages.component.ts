@@ -159,7 +159,14 @@ onSwipeUp() {
     console.log('swipe up');
   });
 }
-
+onPan(event: any) {
+    if (event.additionalEvent === 'panup' || event.additionalEvent === 'pandown') {
+      // Allow vertical scrolling
+      return;
+    }
+    // Prevent default for horizontal pan (left/right)
+    event.preventDefault();
+}
 onSwipeRight() {
   this.ngZone.run(() => {
     this.searchPrev(); // Load the next Ayah
