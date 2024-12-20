@@ -121,6 +121,8 @@ handleKeyboardEvent(event: KeyboardEvent) {
     this.searchNext();
   } else if (event.key === 'ArrowLeft') {
     this.searchPrev();
+  } else if (event.key === 'Enter') {
+    this.search();
   }
 }
 
