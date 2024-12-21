@@ -135,17 +135,17 @@ handleKeyboardEvent(event: KeyboardEvent) {
   }
 }
 
-@HostListener('window:wheel', ['$event'])
-handleScrollEvent(event: WheelEvent) {
+//@HostListener('window:wheel', ['$event'])
+//handleScrollEvent(event: WheelEvent) {
   // Check the scroll direction
-  if (event.deltaY > 0) {
+  //if (event.deltaY > 0) {
     // Scrolled down
-    this.searchNext();
-  } else if (event.deltaY < 0) {
+    //this.searchNext();
+  //} else if (event.deltaY < 0) {
     // Scrolled up
-    this.searchPrev();
-  }
-}
+    //this.searchPrev();
+  //}
+//}
 
 //For Mobile Devices
 onSwipeLeft() {
