@@ -221,5 +221,8 @@ h3 {
   .searchFocus {
     display: block; 
     margin-left: auto;
+    height: 30px;
+    width: 40px;
+    background-color: #63cd55;
   }
 }
