@@ -135,17 +135,17 @@ handleKeyboardEvent(event: KeyboardEvent) {
   }
 }
 
-// @HostListener('window:wheel', ['$event'])
-// handleScrollEvent(event: WheelEvent) {
-//   // Check the scroll direction
-//   if (event.deltaY > 0) {
-//     // Scrolled down
-//     this.searchNext();
-//   } else if (event.deltaY < 0) {
-//     // Scrolled up
-//     this.searchPrev();
-//   }
-// }
+@HostListener('window:wheel', ['$event'])
+handleScrollEvent(event: WheelEvent) {
+  // Check the scroll direction
+  if (event.deltaY > 0) {
+    // Scrolled down
+    this.searchNext();
+  } else if (event.deltaY < 0) {
+    // Scrolled up
+    this.searchPrev();
+  }
+}
 
 //For Mobile Devices
 onSwipeLeft() {
@@ -153,28 +153,14 @@ onSwipeLeft() {
     });
 }
 
-onSwipeUp() {
-  this.ngZone.run(() => {
+goSearch() {
     this.surahNumberInput.nativeElement.focus(); // Focus on the Surah number input
-    console.log('swipe up');
-  });
 }
-onPan(event: any) {
-    if (event.additionalEvent === 'panup' || event.additionalEvent === 'pandown') {
-      // Allow vertical scrolling
-      return;
-    }
-    // Prevent default for horizontal pan (left/right)
-    event.preventDefault();
-}
+
 onSwipeRight() {
   this.ngZone.run(() => {
     this.searchPrev(); // Load the next Ayah
   });
 }
-
-// toggleHelp() {
-//   this.showHelp = !this.showHelp;
-// }
 
 }
