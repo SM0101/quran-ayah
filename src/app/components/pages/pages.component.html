@@ -18,8 +18,7 @@
             <div class="col-1 swiper-button-prev" aria-label="Previous Slide" (click)="searchPrev()"></div>
 
             <div class="col-10 ayah-content" *ngFor="let ayah of ayahs">
-                <h2> {{ ayah.surahNameArabic }}</h2>
-                <h2>{{ ayah.surahName }} </h2>
+                <h2>{{ ayah.surahName }} ( {{ ayah.surahNameArabic }}) </h2>
                 <hr />
                 <h3>{{ ayah.englishNameTranslation }}</h3>
                 <hr />

@@ -135,7 +135,7 @@ h3 {
   }
   
   .container {
-    padding-top: 80px;
+    padding-top: 30px;
     overflow-y: auto;
     touch-action: pan-y !important;
   }
@@ -189,11 +189,9 @@ h3 {
   .search-container input,
   .search-button {
     width: 100%;
-    /* max-width: 300px; */
   }
 
   .search-container input {
-    /* margin-bottom: 10px; */
     height: 15px;
     width: 50px;
   }
@@ -201,8 +199,8 @@ h3 {
   /* Optional Visual Feedback */
   .search-container {
     transition: transform 0.3s ease-in-out;
-    /* margin-top: 30px; */
-    padding: 10px;
+    padding: 5px;
+    position: relative;
   }
 
   .search-container.swipe-left {
